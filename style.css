@@ -5,8 +5,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body {
+body, html {
     background: #040924;
+    max-width: 100vw;
+    max-height: 100vh;
 }
 
 body.active {
@@ -18,14 +20,14 @@ main {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
 }
 
 .calculator {
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
-    width: 428px;
+    min-width: 428px;
     height: 440px;
     transition: 1s;
 }
@@ -148,4 +150,35 @@ button:hover {
 #result span {
     display: block;
     margin: auto;
+}
+
+@media (max-width: 480px) {
+
+    #result {
+        max-width: 90vw;
+    }
+
+    .calculator {
+        min-width: 90vw;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    input, button {
+        max-width: 100%;
+    }
+
+    .calculator h1 {
+        text-align: center;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 370px) { 
+    .calculator {
+        margin: auto;
+        min-width: 95%;
+    }
 }
