@@ -30,19 +30,15 @@ function getVars() {
       else {
         weigthHealth = 'em obesidade grave'
       }
-    
-    document.getElementById('weigthInput').value = ""
-    document.getElementById('heigthInput').value = ""
 
-    if (isNaN(imc) || isNaN(weigth) || isNaN(heigth) || heigth === 'string' || weigth === 'string' || weigth === undefined || heigth === undefined || weigth === NaN || heigth === NaN) {
-        
-        weigth = undefined
-        heigth = undefined
+    if (isNaN(imc) || imc == Infinity || weigth == '' || heigth == '') {
         document.getElementById('header').classList.add('active')
         setTimeout( () => {
             document.getElementById('header').classList.remove('active');
         }, "4000")
     } else {
+        document.getElementById('weigthInput').value = ""
+        document.getElementById('heigthInput').value = ""
         document.getElementById('body').classList.add('active');
         document.getElementById('result').classList.add('active');
         document.getElementById('calculator').classList.add('active');
@@ -51,6 +47,5 @@ function getVars() {
         <img id="close" src="./assets/close.svg" alt="">
         `
         document.getElementById('close').addEventListener('click', close)
-
     }
 }
