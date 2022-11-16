@@ -9,6 +9,7 @@ body, html {
     background: #040924;
     max-width: 100vw;
     max-height: 100vh;
+    transition: .7s;
 }
 
 body.active {
@@ -23,7 +24,7 @@ main {
     max-width: 100vw;
 }
 
-.calculator {
+.calculator-wrapper {
     background: #FFFFFF;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -32,28 +33,33 @@ main {
     transition: 1s;
 }
 
-.calculator h1 {
+.calculator-wrapper h1 {
     margin: 48px 0 32px 64px ;
 }
 
-.calculator input {
+.calculator-wrapper input {
     background: #DCE2E9;
-    border: 1px solid #02799D;
+    border: none;
     border-radius: 4px;
     width: 300px;
     height: 52px;
     padding: 0 20px;
 }
 
-.calculator label {
+.calculator-wrapper input:focus {
+    outline: 2px solid #02799D;
+}
+
+.calculator-wrapper label {
     display: flex;
     align-items: center;
     margin: 16px 0 8px 0;
     color: #00453A;
     font-size: 14px;
+    line-height: 18px;
 }
 
-.calculator span {
+.calculator-wrapper span {
     font-size: 12px;
     margin-left: 6px;
     color: #02799D;
@@ -65,7 +71,7 @@ main {
     width: 70%;
 }
 
-button {
+button#button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -79,12 +85,13 @@ button {
     border-radius: 4px;
     margin-top: 32px;
     color: white;
-    font-size: 1rem
+    font-size: 1rem;
+    transition: .2s;
 }
 
-button:hover {
+button#button:hover {
     cursor: pointer;
-    box-shadow: 1px 1px 4px black;
+    background: #025b76;
 }
 
 .error {
@@ -133,7 +140,7 @@ button:hover {
     visibility: visible;
 }
 
-#calculator.active {
+#calculator-wrapper.active {
     filter: brightness(20%);
 }
 
@@ -158,7 +165,7 @@ button:hover {
         max-width: 90vw;
     }
 
-    .calculator {
+    .calculator-wrapper {
         min-width: 90vw;
     }
 
@@ -170,15 +177,8 @@ button:hover {
         max-width: 100%;
     }
 
-    .calculator h1 {
+    .calculator-wrapper h1 {
         text-align: center;
         margin-left: 0;
-    }
-}
-
-@media (max-width: 370px) { 
-    .calculator {
-        margin: auto;
-        min-width: 95%;
     }
 }

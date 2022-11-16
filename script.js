@@ -1,12 +1,20 @@
-document.getElementById('button').addEventListener('click', getVars)
+const weigthInput = document.getElementById('weigthInput')
+const heigthInput = document.getElementById('heigthInput')
+const body = document.getElementById('body')
+const result = document.getElementById('result')
+const calculator = document.getElementById('calculator-wrapper')
+const header = document.getElementById('header')
+const form = document.querySelector('form')
 
-function close() {
-    document.getElementById('body').classList.remove('active');
-    document.getElementById('result').classList.remove('active');
-    document.getElementById('calculator').classList.remove('active');
+function closePopUp() {
+    body.classList.remove('active');
+    result.classList.remove('active');
+    calculator.classList.remove('active');
 }
 
-function getVars() {
+form.onsubmit = (event) => {
+
+    event.preventDefault()
     let weigth = document.getElementById('weigthInput').value
     
     let heigth = document.getElementById('heigthInput').value
@@ -31,21 +39,26 @@ function getVars() {
         weigthHealth = 'em obesidade grave'
       }
 
-    if (isNaN(imc) || imc == Infinity || weigth == '' || heigth == '') {
-        document.getElementById('header').classList.add('active')
+    if (isNaN(imc) || imc == Infinity) {
+        header.classList.add('active')
+        
         setTimeout( () => {
-            document.getElementById('header').classList.remove('active');
+            header.classList.remove('active');
         }, "4000")
     } else {
-        document.getElementById('weigthInput').value = ""
-        document.getElementById('heigthInput').value = ""
-        document.getElementById('body').classList.add('active');
-        document.getElementById('result').classList.add('active');
-        document.getElementById('calculator').classList.add('active');
-        document.getElementById('result').innerHTML = `
+        weigthInput.value = ""
+        heigthInput.value = ""
+        
+        body.classList.add('active');
+        
+        result.classList.add('active');
+        
+        calculator.classList.add('active');
+        
+        result.innerHTML = `
         <h2>Seu IMC é ${imc}</h2><h2>Você está ${weigthHealth}</h2>
-        <img id="close" src="./assets/close.svg" alt="">
+        <img id="close" src="./assets/close.svg" alt="Botão para fechar o resultado do IMC">
         `
-        document.getElementById('close').addEventListener('click', close)
+        document.getElementById('close').addEventListener('click', closePopUp)
     }
 }

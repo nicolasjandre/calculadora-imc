@@ -13,21 +13,21 @@
 <body id="body">
 
     <header id="header">
-        <div class="error"><p>Digite somente números e não deixe campos vazios.</p></div>
+        <div class="error"><p>Digite somente números.</p></div>
     </header>
     
     <main>
         
-        <div id="calculator" class="calculator">
+        <div id="calculator-wrapper" class="calculator-wrapper">
             <h1>Cálculo de IMC</h1>
-            <div class="form">
+            <form class="form">
                 <label for="weigthInput">Peso: <span>(em kgs)</span></label>
-                <input required id="weigthInput" type="text">
+                <input autofocus required id="weigthInput" type="text" placeholder="Ex: 82.4">
                 <label for="heigthInput">Altura: <span>(em cm)</span></label>
-                <input required id="heigthInput" type="text">
+                <input required id="heigthInput" type="text" placeholder="Ex: 174">
 
-                <button id="button" type="button">Calcular IMC <img src="./assets/arrow.svg" alt=""></button>
-            </div>
+                <button id="button" type="submit">Calcular IMC <img src="./assets/arrow.svg" alt=""></button>
+            </form>
         </div>
 
         <div id="result"></div>
