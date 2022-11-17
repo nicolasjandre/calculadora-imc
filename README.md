@@ -1,4 +1,4 @@
-<h1 align="center">Página simples</h1>
+<h1 align="center">Calculadora de IMC</h1>
 
 
 
